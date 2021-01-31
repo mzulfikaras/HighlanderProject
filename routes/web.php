@@ -23,8 +23,8 @@ Route::prefix('user')->group( function(){
     Route::get('/product','User\FrontController@getProduct')->name('user.product');
     Route::get('/product-details','User\FrontController@getProductDetails')->name('user.product.details');
 });
-Route::get('/admin','Admincontroller@index')->name('admin.index');
+
 
 Route::prefix('admin')->group( function(){
-
+    Route::get('/dashboard','Admin\DashboardController@dashboard')->name('admin.dashboard');
 });
