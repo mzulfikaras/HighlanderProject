@@ -14,8 +14,8 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        $contact = ContactUs::all();
-        return view('admin.contact.show',compact('contact'));
+        $contacts = ContactUs::all();
+        return view('admin.contact.index',compact('contacts'));
     }
 
     /**
@@ -25,8 +25,8 @@ class ContactUsController extends Controller
      */
     public function create()
     {
-        $contact = ContactUs::all();
-        return view('admin.contact.create',compact('contact'));
+        $contacts = ContactUs::all();
+        return view('admin.contact.index',compact('contacts'));
     }
 
     /**
@@ -42,10 +42,10 @@ class ContactUsController extends Controller
             'email'=>'required',
             'telepon'=>'required',
             'pesan'=>'required'
-        ])
+        ]);
         ContactUs::create($validatedData);
-        $request->session()->flash('pesan',"data {$validatedData['nama'] Berhasil Disimpan");
-        return redirect()->view('admin.contact.show')
+        $request->session()->flash('pesan',"data {$validatedData['nama']} Berhasil Disimpan");
+        return redirect()->view('admin.contact.index');
     }
 
     /**
