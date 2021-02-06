@@ -27,4 +27,10 @@ Route::prefix('user')->group( function(){
 
 Route::prefix('admin')->group( function(){
     Route::get('/dashboard','Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/announcements','Admin\AnnouncementController@index')->name('announcements.index');
+    Route::get('/announcements/create', 'Admin\AnnouncementController@create')->name('announcements.create');
+    Route::post('/announcements', 'Admin\AnnouncementController@store')->name('announcements.store');
+    Route::patch('/announcements/{announcement}', 'Admin\AnnouncementController@update')->name('announcements.update');
+    Route::get('/announcements/{announcement}/edit', 'Admin\AnnouncementController@edit')->name('announcements.edit');
+    Route::delete('/announcements/{announcement}', 'Admin\AnnouncementController@destroy')->name('announcements.destroy');
 });
