@@ -24,6 +24,11 @@ Route::prefix('user')->group( function(){
     Route::get('/product-details','User\FrontController@getProductDetails')->name('user.product.details');
 });
 
+
 Route::prefix('admin')->group( function(){
-    Route::resource('/contactus', 'ContactUsController');
+    Route::get('/dashboard','Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/contact/create','Admin\ContactUsController@create')->name('contact.create');
+    Route::get('/contact/index','Admin\ContactUsController@index')->name('contact.index');
+    Route::post('/contact/create','Admin\ContactUsController@store')->name('contact.store');
+    
 });
