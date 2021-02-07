@@ -22,6 +22,8 @@ Route::prefix('user')->group( function(){
     Route::get('/home','User\FrontController@getHome')->name('user.home');
     Route::get('/product','User\FrontController@getProduct')->name('user.product');
     Route::get('/product-details','User\FrontController@getProductDetails')->name('user.product.details');
+    Route::get('/about', 'User\FrontController@getAbout')->name('user.about');
+    Route::get('/contact', 'User\FrontController@getContact')->name('user.contact');
 });
 
 

@@ -1,25 +1,23 @@
 @extends('user.master-user')
 @section('title', 'Home | Highlander.co.id')
+@section('home','active')
 
 @section('main')
 <div class="banner header-text">
     <div class="owl-banner owl-carousel">
       <div class="banner-item-01">
         <div class="text-content">
-          <h4>Find your car today!</h4>
-          <h2>Lorem ipsum dolor sit amet</h2>
+
         </div>
       </div>
       <div class="banner-item-02">
         <div class="text-content">
-          <h4>Fugiat Aspernatur</h4>
-          <h2>Laboriosam reprehenderit ducimus</h2>
+
         </div>
       </div>
       <div class="banner-item-03">
         <div class="text-content">
-          <h4>Saepe Omnis</h4>
-          <h2>Quaerat suscipit unde minus dicta</h2>
+
         </div>
       </div>
     </div>
@@ -32,7 +30,7 @@
         <div class="col-md-12">
           <div class="section-heading">
             <h2>Featured Products</h2>
-            <a href="products.html">view more <i class="fa fa-angle-right"></i></a>
+            <a href="{{route('user.product')}}">view more <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
         <div class="col-md-4">
@@ -81,19 +79,14 @@
         </div>
         <div class="col-md-6">
           <div class="left-content">
-            <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>
-            <ul class="featured-list">
-              <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-              <li><a href="#">Consectetur an adipisicing elit</a></li>
-              <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-              <li><a href="#">Corporis, omnis doloremque</a></li>
-            </ul>
+            Genset HIGHLANDER hadir untuk membantu memecahkan masalah kebutuhan akan Generator Set/ Genset di Indonesia Perusahaan kami adalah salah satu distributor mesin genset di Indonesia, kami melayani penjualan Diesel Genset, Layanan Sewa/Rental Genset, Layanan Service Genset, Layanan Service Genset,
+            serta layanan purna Jual, Semua kami berikan dengan harga murah. <br>
             <a href="about-us.html" class="filled-button">Read More</a>
           </div>
         </div>
         <div class="col-md-6">
           <div class="right-image">
-            <img src="assets/images/about-1-570x350.jpg" alt="">
+            <iframe width="540" height="400" src="https://www.youtube.com/embed/izGgRanzAFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -114,61 +107,55 @@
           <div class="owl-clients owl-carousel text-center">
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/BNI.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>John Doe</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>Bank BNI</h4>
               </div>
             </div>
 
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/permata.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>Jane Smith</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>Bank Permata</h4>
               </div>
             </div>
 
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/lotte-mart.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>Antony Davis</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>Lotte Mart</h4>
               </div>
             </div>
 
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/PLN1.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>John Doe</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>PLN</h4>
               </div>
             </div>
 
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/pemda-prabumulih.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>Jane Smith</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>Pemda Prabumulih</h4>
               </div>
             </div>
 
             <div class="service-item">
               <div class="icon">
-                <i class="fa fa-user"></i>
+                <img src="{{asset('assets/user/images/brand/unlibanon1.png')}}" width="150" height="200" alt="">
               </div>
               <div class="down-content">
-                <h4>Antony Davis</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+                <h4>UN Libanon</h4>
               </div>
             </div>
           </div>

@@ -18,4 +18,12 @@ class FrontController extends Controller
     public function getProductDetails(){
         return view('user.pages.product.product-details');
     }
+
+    public function getAbout(){
+        return view('user.pages.about.index');
+    }
+
+    public function getContact(){
+        return view('user.pages.contact.index');
+    }
 }

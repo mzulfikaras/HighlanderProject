@@ -1,5 +1,6 @@
 @extends('user.master-user')
 @section('title', 'Product | HighLander.co.id')
+@section('product','active')
 
 @section('main')
 <div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
