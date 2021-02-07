@@ -27,4 +27,10 @@ Route::prefix('user')->group( function(){
 
 Route::prefix('admin')->group( function(){
     Route::get('/dashboard','Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/client','Admin\ClientController@index')->name('client.index');
+    Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
+    Route::post('/client', 'Admin\ClientController@store')->name('client.store');
+    Route::patch('/client/{client}', 'Admin\ClientController@update')->name('client.update');
+    Route::get('/client/{client}/edit', 'Admin\ClientController@edit')->name('client.edit');
+    Route::delete('/client/{client}', 'Admin\ClientController@destroy')->name('client.destroy');
 });
