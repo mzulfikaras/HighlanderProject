@@ -27,4 +27,10 @@ Route::prefix('user')->group( function(){
 
 Route::prefix('admin')->group( function(){
     Route::get('/dashboard','Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/merk', 'Admin\MerkController@index')->name('admin.merk.index');
+    Route::get('/merk-create', 'Admin\MerkController@create')->name('admin.merk.create');
+    Route::post('/merk-store', 'Admin\MerkController@store')->name('admin.merk.store');
+    Route::get('/merk-edit/{merk}/edit', 'Admin\MerkController@edit')->name('admin.merk.edit');
+    Route::put('/merk-update/{merk}', 'Admin\MerkController@update')->name('admin.merk.update');
+    Route::delete('/merk-delete/{merk}', 'Admin\MerkController@destroy')->name('admin.merk.delete');
 });
