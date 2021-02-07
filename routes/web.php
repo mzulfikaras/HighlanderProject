@@ -33,4 +33,7 @@ Route::prefix('admin')->group( function(){
     Route::patch('/announcements/{announcement}', 'Admin\AnnouncementController@update')->name('announcements.update');
     Route::get('/announcements/{announcement}/edit', 'Admin\AnnouncementController@edit')->name('announcements.edit');
     Route::delete('/announcements/{announcement}', 'Admin\AnnouncementController@destroy')->name('announcements.destroy');
+    Route::get('/contact/create','Admin\ContactUsController@create')->name('contact.create');
+    Route::get('/contact/index','Admin\ContactUsController@index')->name('contact.index');
+    Route::post('/contact/create','Admin\ContactUsController@store')->name('contact.store');
 });
