@@ -35,6 +35,13 @@ Route::prefix('admin')->group( function(){
     Route::patch('/announcements/{announcement}', 'Admin\AnnouncementController@update')->name('announcements.update');
     Route::get('/announcements/{announcement}/edit', 'Admin\AnnouncementController@edit')->name('announcements.edit');
     Route::delete('/announcements/{announcement}', 'Admin\AnnouncementController@destroy')->name('announcements.destroy');
+    Route::get('/produks' , 'Admin\ProdukController@index')->name('produks.index');
+    Route::get('/produks/create' , 'Admin\ProdukController@create')->name('produks.create');
+    Route::post('/produks' , 'Admin\ProdukController@store')->name('produks.store');
+    Route::get('/produks/{produk}','Admin\ProdukController@show')->name('produks.show');
+    Route::get('/produks/{produk}/edit' , 'Admin\ProdukController@edit')->name('produks.edit');
+    Route::patch('/produks/{produk}' , 'Admin\ProdukController@update')->name('produks.update');
+    Route::delete('/produks/{produk}' , 'Admin\ProdukController@destroy')->name('produks.destroy');
     Route::get('/contact/create','Admin\ContactUsController@create')->name('contact.create');
     Route::get('/contact/index','Admin\ContactUsController@index')->name('contact.index');
     Route::post('/contact/create','Admin\ContactUsController@store')->name('contact.store');
