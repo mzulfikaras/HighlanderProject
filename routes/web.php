@@ -36,4 +36,10 @@ Route::prefix('admin')->group( function(){
     Route::get('/contact/create','Admin\ContactUsController@create')->name('contact.create');
     Route::get('/contact/index','Admin\ContactUsController@index')->name('contact.index');
     Route::post('/contact/create','Admin\ContactUsController@store')->name('contact.store');
+    Route::get('/merk', 'Admin\MerkController@index')->name('admin.merk.index');
+    Route::get('/merk-create', 'Admin\MerkController@create')->name('admin.merk.create');
+    Route::post('/merk-store', 'Admin\MerkController@store')->name('admin.merk.store');
+    Route::get('/merk-edit/{merk}/edit', 'Admin\MerkController@edit')->name('admin.merk.edit');
+    Route::put('/merk-update/{merk}', 'Admin\MerkController@update')->name('admin.merk.update');
+    Route::delete('/merk-delete/{merk}', 'Admin\MerkController@destroy')->name('admin.merk.delete');
 });
