@@ -34,9 +34,7 @@
             <p>Pergudangan Prima Centre 1, Jl. Pool PPD Jl. Pesing Poglar, RT.9/RW.2, Kedaung Kali Angke, <br><br>Kecamatan Cengkareng, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11710</p>
             <ul class="social-icons">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>

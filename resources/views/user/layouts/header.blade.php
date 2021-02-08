@@ -20,7 +20,7 @@
 
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{route('user.about')}}">About Us</a>
-                    <a class="dropdown-item" href="testimonials.html">Clients</a>
+                    <a class="dropdown-item" href="{{route('user.client')}}">Clients</a>
                   </div>
               </li>
 

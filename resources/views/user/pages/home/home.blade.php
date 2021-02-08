@@ -2,7 +2,35 @@
 @section('title', 'Home | Highlander.co.id')
 @section('home','active')
 
+@section('modal')
+@if ($dataAnnounce->status == 'aktif')
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+              <img src="{{asset('assets/user/images/Highlander-Logo.png')}}" alt=""> &nbsp;
+              Announcement
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3>{{$dataAnnounce->judul_announce}}</h3><br>
+          <img src="{{Storage::url($dataAnnounce->image)}}" width="300" height="200" alt=""> <br><br>
+          <p>{{$dataAnnounce->description}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+@endif
+@endsection
+
 @section('main')
+
+
 <div class="banner header-text">
     <div class="owl-banner owl-carousel">
       <div class="banner-item-01">
@@ -79,64 +107,21 @@
           <div class="section-heading">
             <h2>Happy Clients</h2>
 
-            <a href="testimonials.html">read more <i class="fa fa-angle-right"></i></a>
+            <a href="{{route('user.client')}}">read more <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
         <div class="col-md-12">
           <div class="owl-clients owl-carousel text-center">
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/BNI.png')}}" width="150" height="200" alt="">
+            @foreach ($dataClient as $data)
+             <div class="service-item">
+                <div class="icon">
+                  <img src="{{Storage::url($data->image)}}" width="150" height="200" alt="">
+                </div>
+                <div class="down-content">
+                  <h4>{{$data->nama_client}}</h4>
+                </div>
               </div>
-              <div class="down-content">
-                <h4>Bank BNI</h4>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/permata.png')}}" width="150" height="200" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Bank Permata</h4>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/lotte-mart.png')}}" width="150" height="200" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Lotte Mart</h4>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/PLN1.png')}}" width="150" height="200" alt="">
-              </div>
-              <div class="down-content">
-                <h4>PLN</h4>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/pemda-prabumulih.png')}}" width="150" height="200" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Pemda Prabumulih</h4>
-              </div>
-            </div>
-
-            <div class="service-item">
-              <div class="icon">
-                <img src="{{asset('assets/user/images/brand/unlibanon1.png')}}" width="150" height="200" alt="">
-              </div>
-              <div class="down-content">
-                <h4>UN Libanon</h4>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -163,4 +148,10 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('js')
+  <script>
+    $('#exampleModal').modal('show');
+  </script>
 @endsection

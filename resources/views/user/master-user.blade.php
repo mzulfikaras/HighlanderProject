@@ -19,7 +19,6 @@
 <link rel="stylesheet" href="{{asset('assets/user/css/owl.css')}}">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@livewireStyles
 </head>
 
 <body>
@@ -40,6 +39,8 @@
     <!-- Page Content -->
     <!-- Banner Starts Here -->
 
+    @yield('modal')
+
     @yield('main')
 
 
@@ -55,7 +56,7 @@
     <script src="{{asset('assets/user/js/custom.js')}}"></script>
     <script src="{{asset('assets/user/js/owl.js')}}"></script>
 
-    @livewireScripts
+    @yield('js')
 
 </body>
 </html>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Announcement;
+use App\Models\client;
 use App\Models\ContactUs;
 use App\Models\Merk;
 use App\Models\Product;
@@ -13,7 +15,9 @@ class FrontController extends Controller
 {
     public function getHome(){
         $dataProduk = Product::orderby('created_at','DESC')->paginate(3);
-        return view('user.pages.home.home', compact('dataProduk'));
+        $dataClient = client::all();
+        $dataAnnounce = Announcement::with([])->first();
+        return view('user.pages.home.home', compact('dataProduk', 'dataClient','dataAnnounce'));
     }
 
     public function getProduct(){
@@ -45,6 +49,11 @@ class FrontController extends Controller
 
     public function getAbout(){
         return view('user.pages.about.index');
+    }
+
+    public function getClient(){
+        $dataClient = client::orderBy('created_at','DESC')->get();
+        return view('user.pages.client.index', compact('dataClient'));
     }
 
     public function getContact(){
