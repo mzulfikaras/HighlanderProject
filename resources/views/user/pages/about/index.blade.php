@@ -3,7 +3,7 @@
 @section('more', 'active')
 
 @section('main')
-<div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-1-1920x500.jpg);">
+<div class="page-heading about-heading header-text" style="background-image: url(../assets/user/images/Group-451.png);">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -22,25 +22,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+            <h2 style="text-align: center">Highlander Company Video</h2>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="right-image">
-            <img src="assets/images/about-1-570x350.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="left-content">
-            <h4>Lorem ipsum dolor sit amet.</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
-            <ul class="social-icons">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-            </ul>
-          </div>
+        <div class="col-md-12" style="text-align: center">
+          {{-- <div class="right-image"> --}}
+            <iframe width="800" height="500" src="https://www.youtube.com/embed/izGgRanzAFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {{-- </div> --}}
         </div>
       </div>
     </div>
@@ -52,14 +40,14 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>Highlander Genset.</h2>
           </div>
 
-          <h5>Lorem ipsum dolor sit amet.</h5>
+          <p>Genset HIGHLANDER hadir untuk membantu memecahkan masalah kebutuhan akan Generator Set/ Genset di Indonesia Perusahaan kami adalah salah satu distributor mesin genset di Indonesia, kami melayani penjualan Diesel Genset, Layanan Sewa/Rental Genset, Layanan Service Genset, Layanan Service Genset, serta layanan purna Jual, Semua kami berikan dengan harga murah. Kami menyediakan kebutuhan anda untuk genset Open type, Genset Silent type, Genset trailer, dan Genset Portable, dengan kapasitas mulai dari 1 KVA sampai 2000 KVA dengan harga murah tetapi dengan kualitas yang tinggi</p><br>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
+          <p>Genset HIGHLANDER merupakan salah satu Perusahaan Genset di Indonesia. Perusahaan kami merupakan Perusahaan Manufacturing dan Assembling Genset, dan akan siap memenuhi kebutuhan Genset Rumah Tangga, Genset untuk Mall/Supermarket, Genset Industry, Genset untuk perkantoran, dan masih banyak lagi dan kami memberikan Harga genset yang sangat murah. Untuk engine seperti Perkins, Yanmar, Cummins, Mitsubishi, Volvo, Lovol, Doosan, Foton, dan lain-lain. Untuk Alternator Kami menggunakan Stamford, LeroySomer, MAreli, dll.</p><br>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quae eveniet tempora reprehenderit quo, necessitatibus vel sit laboriosam, sunt obcaecati quisquam explicabo voluptatibus earum facilis quidem fuga maiores. Quasi, obcaecati? <br><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, est officiis. Ipsam quas consequuntur adipisci quis, fuga pariatur eius eveniet qui similique nulla inventore accusantium, suscipit asperiores quibusdam culpa iure!</p>
+          <p>Genset HIGHLANDER dirancang dengan tujuan memberikan kenyamanan bagi pengguna Mesin Genset di Indonesia</p>
         </div>
       </div>
     </div>

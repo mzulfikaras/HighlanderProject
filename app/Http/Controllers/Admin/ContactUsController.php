@@ -43,61 +43,10 @@ class ContactUsController extends Controller
         $request->session()->flash('pesan',"data {$validatedData['nama']} Berhasil Disimpan");
         return redirect()->route('contact.index');
     }
-    
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Karyawan $karyawan)
-    {
-        return view('karyawan.show', compact('karyawan'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-     
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Karyawan $karyawan){
-        return view('karyawan.edit', compact('karyawan'));
-    }
-    public function update(Request $request, Karyawan $karyawan)
+    public function destroy(ContactUs $contacts)
     {
-        $validatedData = $request->validate([
-            'nik' => 'required|size:8|unique:karyawans,nik,'.$karyawan->id,
-            'nama' => 'required|min:3|max:50',
-            'jenis_kelamin' => 'required|in:P,L',
-            'bagian' => 'required',
-            'alamat' => ''
-        ]);
-        $karyawan->update($validatedData);
-        $telepon = $karyawan->telepon;
-        $telepon->nomer_telepon = $request->input('nomer_telepon');
-        $karyawan->telepon()->save($telepon);
-        return redirect()->route('karyawans.show', ['karyawan'=> $karyawan->id])->with('pesan', "Update Data {$validatedData['nama']} Berhasil");
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Karyawan $karyawan)
-    {
-        $karyawan->delete();
-        return redirect()->route('karyawan.index')->with('hapus', "Hapus Data $karyawan->nama Berhasil");
+        $contacts->delete();
+        return redirect()->route('contact.index')->with('hapus', "Hapus Data Contact Berhasil");
     }
 }

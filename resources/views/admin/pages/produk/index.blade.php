@@ -2,11 +2,10 @@
 @section('title', 'Data Produk')
 @section('produk', 'active')
 @section('main')
-    <div class="container-fluid mt-3">     
+    <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="py-4">
-                    <h2>Tabel Data Produk</h2>
                     <a href="{{route('produks.create')}}" class="btn btn-primary">Tamabahkan Produk</a>
                 </div>
                 @if (session('pesan'))
@@ -35,7 +34,7 @@
                             <th>Cylinder</th>
                             <th>Engine Data</th>
                             <th>Size</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,10 +43,10 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td><a href="">{{$produk->code}}</a></td>
                                 <td>
-                                    <img src="{{Storage::url(($produk->gambar))}}" alt="gambar" style="width: 150px;">
+                                    <img src="{{Storage::url($produk->gambar)}}" alt="gambar" style="width: 150px;">
                                 </td>
                                 <td>{{$produk->nama}}</td>
-                                <td>{{$produk->merk}}</td>
+                                <td>{{$produk->merk->nama_merk}}</td>
                                 <td>{{$produk->harga}}</td>
                                 <td>{{$produk->standbypower}}</td>
                                 <td>{{$produk->primepower}}</td>
@@ -57,7 +56,7 @@
                                 <td>{{$produk->enginedata}}</td>
                                 <td>{{$produk->size}}</td>
                                 <td class="pt-3 d-flex justify-content-end">
-                                    <a href="{{route('produks.edit',$produk->id)}}" class="btn btn-primary">Edit data</a>
+                                    <a href="{{route('produks.edit',$produk->id)}}" class="btn btn-primary">Edit</a>
                                     <form action="{{route('produks.destroy', $produk->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -66,11 +65,11 @@
                                 </td>
                             </tr>
                         @empty
-                            <td colspan="6" class="text-center">Data Kosong</td>
+                            <td colspan="15" class="text-center">Data Kosong</td>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
-    </div> 
+    </div>
 @endsection

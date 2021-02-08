@@ -1,14 +1,15 @@
 @extends('user.master-user')
 @section('title','Product Details | Highlander.co.id')
+@section('product','active')
 
 @section('main')
-<div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+<div class="page-heading about-heading header-text" style="background-image: url({{Storage::url($produk->gambar)}})">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="text-content">
-            <h4>Lorem ipsum dolor sit amet</h4>
-            <h2>Product Details</h2>
+            <h4>Product Details</h4>
+            <h2>{{$produk->nama}}</h2>
           </div>
         </div>
       </div>
@@ -20,77 +21,56 @@
       <div class="row">
         <div class="col-md-4 col-xs-12">
           <div>
-            <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid wc-image">
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-sm-4 col-xs-6">
-              <div>
-                <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid">
-              </div>
-              <br>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-              <div>
-                <img src="assets/images/product-2-370x270.jpg" alt="" class="img-fluid">
-              </div>
-              <br>
-            </div>
-            <div class="col-sm-4 col-xs-6">
-              <div>
-                <img src="assets/images/product-3-370x270.jpg" alt="" class="img-fluid">
-              </div>
-              <br>
-            </div>
+            <img src="{{Storage::url($produk->gambar)}}" alt="" class="img-fluid wc-image">
           </div>
         </div>
 
         <div class="col-md-8 col-xs-12">
-          <form action="#" method="post" class="form">
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>{{$produk->nama}}</h2>
 
             <br>
 
             <p class="lead">
-              <small><del> $999.00</del></small><strong class="text-primary">$779.00</strong>
+              <strong class="text-primary">Rp. {{number_format($produk->harga)}}</strong>
             </p>
 
             <br>
-
-            <p class="lead">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio. Provident ratione vero, corrupti, optio laborum aut!
-            </p>
-
-            <br>
-
             <div class="row">
-              <div class="col-sm-4">
-                <label class="control-label">Extra 1</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option value="0">18 gears</option>
-                    <option value="1">21 gears</option>
-                    <option value="2">27 gears</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-8">
-                <label class="control-label">Quantity</label>
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="1">
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">
-                    <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
-                  </div>
-                </div>
+              <div class="col-sm-12">
+                <h5>Produk Detail</h5>
+                <br>
+                <table border="2" style="width: 30rem">
+                    <tbody>
+                    <tr>
+                        <th>Standby Power</th><th>KVA</th>
+                        <td>{{$produk->standbypower}}</td>
+                    </tr>
+                    <tr>
+                        <th>Prime Power</th><th>KVA</th>
+                        <td>{{$produk->primepower}}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Engine Model</th>
+                        <td>{{$produk->enginemodel}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fuel Consumption</th>
+                        <th>g / kW.h</th>
+                        <td>{{$produk->fuelcosumption}}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Cylinders</th>
+                        <td>{{$produk->cylinder}}</td>
+                    </tr>
+                    <tr>
+                        <th >Engine Data</th>
+                        <th>Stroke (KG)</th>
+                        <td>{{$produk->enginedata}}</td>
+                    </tr>
+                    </tbody>
+                </table>
               </div>
             </div>
-          </form>
         </div>
       </div>
     </div>
@@ -102,38 +82,22 @@
         <div class="col-md-12">
           <div class="section-heading">
             <h2>Similar Products</h2>
-            <a href="products.html">view more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="product-details.html"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="product-details.html"><h4>Omega bicycle</h4></a>
-              <h6><small><del>$999.00 </del></small> $779.00</h6>
-            </div>
+            <a href="{{route('user.product')}}">view more <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="product-details.html"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="product-details.html"><h4>Nike Revolution 5 Shoes</h4></a>
-              <h6><small><del>$99.00</del></small>  $79.00</h6>
+        @foreach ($similiarProduct as $s)
+            <div class="col-md-4">
+                <div class="product-item">
+                  <a href="{{route('user.product.details', $s->id)}}"><img src="{{Storage::url($s->gambar)}}" alt=""></a>
+                  <div class="down-content">
+                    <a href="{{route('user.product.details', $s->id)}}"><h4>{{$s->nama}}</h4></a>
+                    <h6>Rp. {{number_format($s->harga)}}</h6>
+                  </div>
+                </div>
             </div>
-          </div>
-        </div>
+        @endforeach
 
-        <div class="col-md-4">
-          <div class="product-item">
-            <a href="product-details.html"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
-            <div class="down-content">
-              <a href="product-details.html"><h4>Treadmill Orion Sprint</h4></a>
-              <h6><small><del>$1999.00</del></small>   $1779.00</h6>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

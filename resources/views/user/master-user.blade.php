@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="assets/images/favicon.ico">
+<link rel = "icon" href ="{{asset('assets/user/images/Trademark-Logo.png')}}" type = "image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
 <title>@yield('title')</title>
@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="{{asset('assets/user/css/owl.css')}}">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@livewireStyles
 </head>
 
 <body>
@@ -53,6 +54,8 @@
     <!-- Additional Scripts -->
     <script src="{{asset('assets/user/js/custom.js')}}"></script>
     <script src="{{asset('assets/user/js/owl.js')}}"></script>
+
+    @livewireScripts
 
 </body>
 </html>

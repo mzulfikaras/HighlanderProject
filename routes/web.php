@@ -21,9 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('user')->group( function(){
     Route::get('/home','User\FrontController@getHome')->name('user.home');
     Route::get('/product','User\FrontController@getProduct')->name('user.product');
-    Route::get('/product-details','User\FrontController@getProductDetails')->name('user.product.details');
+    Route::get('/product/cari','User\FrontController@filterProduct')->name('user.product.cari');
+    Route::get('/product-details/{produk}','User\FrontController@getProductDetails')->name('user.product.details');
     Route::get('/about', 'User\FrontController@getAbout')->name('user.about');
     Route::get('/contact', 'User\FrontController@getContact')->name('user.contact');
+    Route::post('/store-contact','User\FrontController@storeContact')->name('user.store.contact');
 });
 
 
@@ -45,6 +47,7 @@ Route::prefix('admin')->group( function(){
     Route::get('/contact/create','Admin\ContactUsController@create')->name('contact.create');
     Route::get('/contact/index','Admin\ContactUsController@index')->name('contact.index');
     Route::post('/contact/create','Admin\ContactUsController@store')->name('contact.store');
+    Route::delete('/contact-delete/{contacts}','Admin\ContactUsController@destroy')->name('contact.delete');
     Route::get('/merk', 'Admin\MerkController@index')->name('admin.merk.index');
     Route::get('/merk-create', 'Admin\MerkController@create')->name('admin.merk.create');
     Route::post('/merk-store', 'Admin\MerkController@store')->name('admin.merk.store');
@@ -52,3 +55,7 @@ Route::prefix('admin')->group( function(){
     Route::put('/merk-update/{merk}', 'Admin\MerkController@update')->name('admin.merk.update');
     Route::delete('/merk-delete/{merk}', 'Admin\MerkController@destroy')->name('admin.merk.delete');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

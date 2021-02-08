@@ -25,14 +25,13 @@
                 </div>
                 <div class="form-group">
                     <label for="merk">Merek Produk</label>
-                    <select class="form-control" id="merk" name="merk">
-                        @forelse ( as )
-                            <option value="{{}}" {{old('merk')=="" ? 'selected' : ''}}>
-                                {{}}
+                    <select class="form-control" id="merk" name="merk_id">
+                        <option disabled="disabled" selected="selected">Pilih Merk</option>
+                        @foreach ($merk as $m)
+                            <option value="{{$m->id}}" {{(old('merk_id') == "$m->id") ? 'selected' : ''}}>
+                                {{$m->nama_merk}}
                             </option>
-                        @empty
-                            
-                        @endforelse
+                        @endforeach
                     </select>
                     @error('merk')
                         <div class="alert alert-danger">{{$message}}</div>

@@ -6,7 +6,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="py-4">
-                    <h2>Announcement</h2>
                     <a href="{{ route('announcements.create') }}" class="btn btn-primary">Tambah Announcement</a>
                 </div>
                 @if (session('pesan'))
@@ -41,7 +40,7 @@
                                 <td>{{ $announcement->description }}</td>
                                 <td>{{ $announcement->status }}</td>
                                 <td>
-                                        
+
                                         <form action="{{ route('announcements.destroy', $announcement->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
