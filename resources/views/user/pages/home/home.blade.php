@@ -3,6 +3,7 @@
 @section('home','active')
 
 @section('modal')
+@if (!empty($dataAnnounce))
 @if ($dataAnnounce->status == 'aktif')
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -20,11 +21,13 @@
           <p>{{$dataAnnounce->description}}</p>
         </div>
         <div class="modal-footer">
+          <label><input type="checkbox" name="dismiss" id="dont" onclick=""> Don't show again!</label>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
 </div>
+@endif
 @endif
 @endsection
 
@@ -64,9 +67,10 @@
         @foreach ($dataProduk as $data)
          <div class="col-md-4">
             <div class="product-item">
-              <a href="product-details.html"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
+              <a href="{{route('user.product.details', $data->id)}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
               <div class="down-content">
-                <a href="product-details.html"><h4 class="text-center">{{$data->nama}}</h4></a>
+                <a href="product-details.html"><h4 class="text-center">{{$data->merk->nama_merk}}</h4></a>
+                <p class="text-center">{{$data->enginetype}}</p>
                 <h6 class="text-center">Rp.{{number_format($data->harga)}}</h6>
               </div>
             </div>
@@ -154,4 +158,5 @@
   <script>
     $('#exampleModal').modal('show');
   </script>
+
 @endsection

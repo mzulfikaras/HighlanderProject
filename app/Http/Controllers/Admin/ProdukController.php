@@ -26,25 +26,22 @@ class ProdukController extends Controller
 
     public function store(Request $request){
         $validateData = $request->validate([
-            'code' => 'required|unique:products',
-            'nama' => 'required|min:4|max:50',
-            'image' => 'image|image|max:3000',
             'merk_id' => 'required',
-            'harga' => 'required|min:5|max:20',
-            'standbypower' => 'required|min:2|max:15',
-            'primepower' => 'required|min:2|max:10',
-            'enginemodel' => 'required|min:2|max:30',
-            'fuelcosumption' => 'required|min:4|max:20',
-            'cylinder' => 'required|min:2|max:15',
-            'enginedata' => 'required|min:4|max:40',
-            'size' => 'required|max:20'
-
+            'enginetype' => '',
+            'kva' => 'required',
+            'geno' => 'required|min:2|max:10',
+            'type' => 'required|min:2|max:30',
+            'harga' => '',
+            'kondisi' => 'required|min:4|max:20',
+            'warna' => 'required|min:2|max:15',
         ]);
-        // $validateData = $request->all();
-        $validateData['gambar'] = $request->file('gambar')->store('assets/admin/produk','public');
+
+        if($request->gambar){
+            $validateData['gambar'] = $request->file('gambar')->store('assets/admin/produk','public');
+        }
 
         Product::create($validateData);
-        $request->session()->flash('pesan' , "Product {$validateData['nama']} Berhasil Ditambahkan");
+        $request->session()->flash('pesan' , "Product Berhasil Ditambahkan");
         return redirect()->route('produks.index');
     }
 
@@ -57,18 +54,14 @@ class ProdukController extends Controller
         $produkId = $produk->find($produk->id);
 
         $validateData = $request->validate([
-            'code' => 'required|unique:products,code,'.$produk->id,
-            'nama' => 'required|min:4|max:50',
-            'image' => 'image|image|max:3000',
             'merk_id' => 'required',
-            'harga' => 'required|min:5|max:20',
-            'standbypower' => 'required|min:2|max:15',
-            'primepower' => 'required|min:2|max:10',
-            'enginemodel' => 'required|min:2|max:30',
-            'fuelcosumption' => 'required|min:4|max:20',
-            'cylinder' => 'required|min:2|max:15',
-            'enginedata' => 'required|min:4|max:40',
-            'size' => 'required|max:20'
+            'enginetype' => '',
+            'kva' => 'required',
+            'geno' => 'required|min:2|max:10',
+            'type' => 'required|min:2|max:30',
+            'harga' => '',
+            'kondisi' => 'required|min:4|max:20',
+            'warna' => 'required|min:2|max:15',
         ]);
 
         if($request->gambar){
@@ -77,7 +70,7 @@ class ProdukController extends Controller
         }
         $produk->update($validateData);
 
-        return redirect()->route('produks.index', ['produk'=>$produk->id])->with('pesan' , "Perubahan Product Berhasil");
+        return redirect()->route('produks.index', ['produk'=>$produk->id])->with('pesan' , "Update Product Berhasil");
     }
 
     public function destroy(Product $produk){

@@ -22,18 +22,15 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Code</th>
-                            <th>Gambar</th>
-                            <th>Nama</th>
                             <th>Merk</th>
+                            <th>Engine Type</th>
+                            <th>Gambar</th>
+                            <th>KVA</th>
+                            <th>Geno</th>
+                            <th>Type</th>
                             <th>Harga</th>
-                            <th>Stand By Power</th>
-                            <th>Prime Power</th>
-                            <th>Engine Model</th>
-                            <th>Fuel Cosumption</th>
-                            <th>Cylinder</th>
-                            <th>Engine Data</th>
-                            <th>Size</th>
+                            <th>Kondisi</th>
+                            <th>Warna</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,20 +38,17 @@
                         @forelse ($produks as $produk)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td><a href="">{{$produk->code}}</a></td>
+                                <td>{{$produk->merk->nama_merk}}</td>
+                                <td>{{$produk->enginetype}}</td>
                                 <td>
                                     <img src="{{Storage::url($produk->gambar)}}" alt="gambar" style="width: 150px;">
                                 </td>
-                                <td>{{$produk->nama}}</td>
-                                <td>{{$produk->merk->nama_merk}}</td>
+                                <td>{{$produk->kva}}</td>
+                                <td>{{$produk->geno}}</td>
+                                <td>{{$produk->type}}</td>
                                 <td>{{$produk->harga}}</td>
-                                <td>{{$produk->standbypower}}</td>
-                                <td>{{$produk->primepower}}</td>
-                                <td>{{$produk->enginemodel}}</td>
-                                <td>{{$produk->fuelcosumption}}</td>
-                                <td>{{$produk->cylinder}}</td>
-                                <td>{{$produk->enginedata}}</td>
-                                <td>{{$produk->size}}</td>
+                                <td>{{$produk->kondisi}}</td>
+                                <td>{{$produk->warna}}</td>
                                 <td class="pt-3 d-flex justify-content-end">
                                     <a href="{{route('produks.edit',$produk->id)}}" class="btn btn-primary">Edit</a>
                                     <form action="{{route('produks.destroy', $produk->id)}}" method="POST">

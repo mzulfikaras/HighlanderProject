@@ -8,8 +8,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-content">
-            <h4>Product Details</h4>
-            <h2>{{$produk->nama}}</h2>
+            <h2>Product Details</h2>
           </div>
         </div>
       </div>
@@ -26,7 +25,11 @@
         </div>
 
         <div class="col-md-8 col-xs-12">
-            <h2>{{$produk->nama}}</h2>
+            <h2>{{$produk->enginetype}}</h2>
+
+            <br>
+
+            <h5>{{$produk->merk->nama_merk}}</h5>
 
             <br>
 
@@ -42,30 +45,24 @@
                 <table border="2" style="width: 30rem">
                     <tbody>
                     <tr>
-                        <th>Standby Power</th><th>KVA</th>
-                        <td>{{$produk->standbypower}}</td>
+                        <th>KVA</th>
+                        <td>{{$produk->kva}}</td>
                     </tr>
                     <tr>
-                        <th>Prime Power</th><th>KVA</th>
-                        <td>{{$produk->primepower}}</td>
+                        <th>Geno</th>
+                        <td>{{$produk->geno}}</td>
                     </tr>
                     <tr>
-                        <th colspan="2">Engine Model</th>
-                        <td>{{$produk->enginemodel}}</td>
+                        <th>Type</th>
+                        <td>{{$produk->type}}</td>
                     </tr>
                     <tr>
-                        <th>Fuel Consumption</th>
-                        <th>g / kW.h</th>
-                        <td>{{$produk->fuelcosumption}}</td>
+                        <th>Kondisi</th>
+                        <td>{{$produk->kondisi}}</td>
                     </tr>
                     <tr>
-                        <th colspan="2">Cylinders</th>
-                        <td>{{$produk->cylinder}}</td>
-                    </tr>
-                    <tr>
-                        <th >Engine Data</th>
-                        <th>Stroke (KG)</th>
-                        <td>{{$produk->enginedata}}</td>
+                        <th >Warna</th>
+                        <td>{{$produk->warna}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -91,8 +88,9 @@
                 <div class="product-item">
                   <a href="{{route('user.product.details', $s->id)}}"><img src="{{Storage::url($s->gambar)}}" alt=""></a>
                   <div class="down-content">
-                    <a href="{{route('user.product.details', $s->id)}}"><h4>{{$s->nama}}</h4></a>
-                    <h6>Rp. {{number_format($s->harga)}}</h6>
+                    <a href="{{route('user.product.details', $s->id)}}"><h4 class="text-center">{{$s->merk->nama_merk}}</h4></a>
+                    <p class="text-center">{{$s->enginetype}}</p>
+                    <h6 class="text-center">Rp. {{number_format($s->harga)}}</h6>
                   </div>
                 </div>
             </div>

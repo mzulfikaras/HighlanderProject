@@ -5,25 +5,11 @@
 <div class="container bg-white">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center">Menu Baru</h1>
+            <h1 class="text-center">Update Produk</h1>
             <hr>
             <form action="{{ route('produks.update', $produk->id) }}" method="POST" enctype="multipart/form-data">
-                @method('PATCH')
                 @csrf
-                <div class="form-group">
-                    <label for="code">Code</label>
-                    <input type="text" name="code" id="code"  class="form-control @error('title') is-invalid @enderror" value="{{old('code') ?? $produk->code}}">
-                    @error('code')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="nama">Nama Produk</label>
-                    <input type="text" name="nama" id="nama" class="form-control @error('title') is-invalid @enderror" value="{{old('nama') ?? $produk->nama}}">
-                    @error('nama')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
+                @method('PATCH')
                 <div class="form-group">
                     <label for="merk">Merek Produk</label>
                     <select class="form-control" id="merk_id" name="merk_id">
@@ -38,65 +24,58 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="enginetype">Engine Type</label>
+                    <input type="text" name="enginetype" id="enginetype"  class="form-control @error('enginetype') is-invalid @enderror" value="{{old('enginetype', $produk->enginetype)}}">
+                    @error('enginetype')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="gambar">Gambar produk</label>
+                    <input type="file" name="gambar" id="gambar" class="form-control">
+                    @error('gambar')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="kva">KVA</label>
+                    <input type="text" name="kva" id="kva" class="form-control @error('kva') is-invalid @enderror" value="{{old('kva', $produk->kva)}}">
+                    @error('kva')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="geno">GENO</label>
+                    <input type="text" name="geno" id="geno" class="form-control @error('geno') is-invalid @enderror" value="{{old('geno', $produk->geno)}}">
+                    @error('geno')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="type" class="form-control @error('type') is-invalid @enderror" value="{{old('type', $produk->type)}}">
+                    @error('type')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="harga">Harga</label>
-                    <input type="text" name="harga" id="harga" class="form-control @error('title') is-invalid @enderror" value="{{old('harga') ?? $produk->harga}}">
+                    <input type="text" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{old('harga', $produk->harga)}}">
                     @error('harga')
                         <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="standbypower">Stand By Power</label>
-                    <input type="text" name="standbypower" id="standbypower" class="form-control @error('title') is-invalid @enderror" value="{{old('standbypower') ?? $produk->standbypower}}">
-                    @error('standbypower')
+                    <label for="kondisi">Kondisi</label>
+                    <input type="text" name="kondisi" id="kondisi" class="form-control @error('kondisi') is-invalid @enderror" value="{{old('kondisi', $produk->kondisi)}}">
+                    @error('kondisi')
                         <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="primepower">Prime Power</label>
-                    <input type="text" name="primepower" id="primepower" class="form-control @error('title') is-invalid @enderror" value="{{old('primepower') ?? $produk->primepower}}">
-                    @error('primepower')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="enginemodel">Engine Model</label>
-                    <input type="text" name="enginemodel" id="enginemodel" class="form-control @error('title') is-invalid @enderror" value="{{old('enginemodel') ?? $produk->enginemodel}}">
-                    @error('enginemodel')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="fuelcosumption">Fuel Cosumption</label>
-                    <input type="text" name="fuelcosumption" id="fuelcosumption" class="form-control @error('title') is-invalid @enderror" value="{{old('fuelconsumption') ?? $produk->standbypower}}">
-                    @error('fuelcosumption')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="cylinder">Cylinder</label>
-                    <input type="text" name="cylinder" id="cylinder" class="form-control @error('title') is-invalid @enderror" value="{{old('cylinder') ?? $produk->cylinder}}">
-                    @error('cylinder')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="enginedata">Engine Data</label>
-                    <input type="text" name="enginedata" id="enginedata" class="form-control @error('title') is-invalid @enderror" value="{{old('enginedata') ?? $produk->enginedata}}">
-                    @error('enginedata')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="size">Size</label>
-                    <input type="text" name="size" id="size" class="form-control @error('title') is-invalid @enderror" value="{{old('size') ?? $produk->size}}">
-                    @error('size')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="gambar">Gambar Produk</label>
-                    <input type="file" name="gambar" id="gambar" class="form-control">
-                    @error('gambar')
+                    <label for="warna">Warna</label>
+                    <input type="text" name="warna" id="warna" class="form-control @error('warna') is-invalid @enderror" value="{{old('warna', $produk->warna)}}">
+                    @error('warna')
                         <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>

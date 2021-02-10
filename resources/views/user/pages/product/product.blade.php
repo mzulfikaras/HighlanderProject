@@ -42,7 +42,8 @@
               <div class="product-item">
                 <a href="{{route('user.product.details', $data->id)}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
                 <div class="down-content">
-                  <a href="product-details.html"><h4 class="text-center">{{$data->nama}}</h4></a>
+                  <a href="{{route('user.product.details', $data->id)}}"><h4 class="text-center">{{$data->merk->nama_merk}}</h4></a>
+                  <p class="text-center">{{$data->enginetype}}</p>
                   <h6 class="text-center">Rp. {{number_format($data->harga)}}</h6>
                 </div>
               </div>

@@ -19,8 +19,8 @@
   <div class="services section-background">
     <div class="container">
       <div class="row">
+        @foreach ($dataClient as $data)
         <div class="col-md-4">
-            @foreach ($dataClient as $data)
               <div class="service-item">
                 <div class="icon">
                   <img src="{{Storage::url($data->image)}}" alt="">
@@ -28,9 +28,9 @@
                 <div class="down-content">
                   <h4>{{$data->nama_client}}</h4>
                 </div>
-              </div>
-            @endforeach
+            </div>
         </div>
+        @endforeach
       </div>
     </div>
   </div>
