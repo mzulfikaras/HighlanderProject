@@ -33,9 +33,9 @@ class FrontController extends Controller
 		$cari = $request->merk;
 
         if ($cari == 0) {
-            $dataProduk = Product::orderBy('created_at','DESC')->paginate(6);
+            return redirect()->route('user.product');
         } else {
-            $dataProduk = Product::where('merk_id','like',"%".$cari."%")->paginate(6);
+            $dataProduk = Product::where('merk_id','like',"%".$cari."%")->get();
         }
 
 		return view('user.pages.product.product', compact('dataProduk','merk'));

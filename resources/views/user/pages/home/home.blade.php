@@ -21,8 +21,7 @@
           <p>{{$dataAnnounce->description}}</p>
         </div>
         <div class="modal-footer">
-          <label><input type="checkbox" name="dismiss" id="dont" onclick=""> Don't show again!</label>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-default nothanks" data-dismiss="modal" aria-hidden="true">Don't Show Me This Again</button>
         </div>
       </div>
     </div>
@@ -66,12 +65,18 @@
         </div>
         @foreach ($dataProduk as $data)
          <div class="col-md-4">
-            <div class="product-item">
+            <div class="product-item text-center">
               <a href="{{route('user.product.details', $data->id)}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
               <div class="down-content">
-                <a href="product-details.html"><h4 class="text-center">{{$data->merk->nama_merk}}</h4></a>
-                <p class="text-center">{{$data->enginetype}}</p>
-                <h6 class="text-center">Rp.{{number_format($data->harga)}}</h6>
+                <a href="product-details.html"><h4>{{$data->merk->nama_merk}}</h4></a>
+                <p>{{$data->enginetype}}</p>
+                @if ($data->harga == 0)
+                <a
+                href="https://api.whatsapp.com/send?phone=+6281218832206&text=Hallo%20Kami%20Dari%20Highlander%20ada%20yang%20bisa%20kami%20bantu?"
+                class="btn btn-primary">Contact Sales</a>
+                @else
+                <h6><strong style="color: red">Starts from -></strong> Rp. {{number_format($data->harga)}}</h6>
+                @endif
               </div>
             </div>
           </div>
@@ -155,8 +160,29 @@
 @endsection
 
 @section('js')
-  <script>
-    $('#exampleModal').modal('show');
-  </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+    <script>
+        // Delayed Modal Display + Cookie On Click
+        $(document).ready(function() {
 
+            // If no cookie with our chosen name (e.g. no_thanks)...
+            if ($.cookie("no_thanks") == null) {
+
+              // Show the modal, with delay func.
+              $('#exampleModal').appendTo("body");
+              function show_modal(){
+                $('#exampleModal').modal();
+              }
+
+              // Set delay func. time in milliseconds
+              window.setTimeout(show_modal, 2000);
+            }
+
+            // On click of specified class (e.g. 'nothanks'), trigger cookie, with expiration in year 9999
+            $(".nothanks").click(function() {
+              document.cookie = "no_thanks=true; expires=0; path=/user/home";
+
+            });
+        });
+    </script>
 @endsection

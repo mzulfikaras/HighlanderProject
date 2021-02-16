@@ -33,10 +33,15 @@
 
             <br>
 
-            <p class="lead">
-              <strong class="text-primary">Rp. {{number_format($produk->harga)}}</strong>
-            </p>
+            @if ($produk->harga == 0)
+            <a
+            href="https://api.whatsapp.com/send?phone=+6287886380705&text=Hallo%20Kami%20Dari%20Highlander%20ada%20yang%20bisa%20kami%20bantu?"
+            class="btn btn-primary">Contact Sales</a>
+            @else
+              <h6><strong style="color: red">Starts from -></strong> Rp. {{number_format($produk->harga)}}</h6>
+            @endif
 
+            <br>
             <br>
             <div class="row">
               <div class="col-sm-12">
@@ -85,12 +90,18 @@
 
         @foreach ($similiarProduct as $s)
             <div class="col-md-4">
-                <div class="product-item">
+                <div class="product-item text-center">
                   <a href="{{route('user.product.details', $s->id)}}"><img src="{{Storage::url($s->gambar)}}" alt=""></a>
                   <div class="down-content">
-                    <a href="{{route('user.product.details', $s->id)}}"><h4 class="text-center">{{$s->merk->nama_merk}}</h4></a>
-                    <p class="text-center">{{$s->enginetype}}</p>
-                    <h6 class="text-center">Rp. {{number_format($s->harga)}}</h6>
+                    <a href="{{route('user.product.details', $s->id)}}"><h4>{{$s->merk->nama_merk}}</h4></a>
+                    <p>{{$s->enginetype}}</p>
+                    @if ($s->harga == 0)
+                    <a
+                    href="https://api.whatsapp.com/send?phone=+6287886380705&text=Hallo%20Kami%20Dari%20Highlander%20ada%20yang%20bisa%20kami%20bantu?"
+                    class="btn btn-primary">Contact Sales</a>
+                    @else
+                      <h6><strong style="color: red">Starts from -></strong> Rp. {{number_format($s->harga)}}</h6>
+                    @endif
                   </div>
                 </div>
             </div>

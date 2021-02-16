@@ -41,18 +41,26 @@
             <div class="col-md-4">
               <div class="product-item">
                 <a href="{{route('user.product.details', $data->id)}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
-                <div class="down-content">
-                  <a href="{{route('user.product.details', $data->id)}}"><h4 class="text-center">{{$data->merk->nama_merk}}</h4></a>
-                  <p class="text-center">{{$data->enginetype}}</p>
-                  <h6 class="text-center">Rp. {{number_format($data->harga)}}</h6>
+                <div class="down-content text-center">
+                  <a href="{{route('user.product.details', $data->id)}}"><h4>{{$data->merk->nama_merk}}</h4></a>
+                  <p>{{$data->enginetype}}</p>
+                  @if ($data->harga == 0)
+                    <a
+                    href="https://api.whatsapp.com/send?phone=+6287886380705&text=Hallo%20Kami%20Dari%20Highlander%20ada%20yang%20bisa%20kami%20bantu?"
+                    class="btn btn-primary">Contact Sales</a>
+                  @else
+                    <h6><strong style="color: red">Starts from -></strong> Rp. {{number_format($data->harga)}}</h6>
+                  @endif
                 </div>
               </div>
             </div>
          @endforeach
 
-        <div class="col-md-12">
+        @if(!request()->routeIs('user.product.cari'))
+         <div class="col-md-12">
             {{ $dataProduk->links() }}
-        </div>
+         </div>
+        @endif
       </div>
     </div>
   </div>
