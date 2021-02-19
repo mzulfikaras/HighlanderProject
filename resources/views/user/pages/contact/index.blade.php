@@ -35,6 +35,7 @@
             <ul class="social-icons">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="tel:02154365000"><i class="fa fa-phone"></i></a> 021-54365000</li>
             </ul>
           </div>
         </div>

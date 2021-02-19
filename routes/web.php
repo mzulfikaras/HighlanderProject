@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+Route::get('/','User\FrontController@getHome')->name('user.home');
 Route::prefix('user')->group( function(){
-    Route::get('/home','User\FrontController@getHome')->name('user.home');
     Route::get('/product','User\FrontController@getProduct')->name('user.product');
     Route::get('/product/cari','User\FrontController@filterProduct')->name('user.product.cari');
     Route::get('/product-details/{produk}','User\FrontController@getProductDetails')->name('user.product.details');
@@ -71,3 +71,5 @@ Route::prefix('admin')->middleware('auth')->group( function(){
     Route::get('/client/{client}/edit', 'Admin\ClientController@edit')->name('client.edit');
     Route::delete('/client/{client}', 'Admin\ClientController@destroy')->name('client.destroy');
 });
+
+

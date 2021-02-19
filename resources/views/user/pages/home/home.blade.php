@@ -148,8 +148,11 @@
                 <h4>Apakah Anda Tertarik Dengan Kami?</h4>
                 <p>Silahkan Contact Kepada Tim Kami Jika Anda Mempunyai Pertanyaan Tentang Kami Ataupun Produk Kami</p>
               </div>
-              <div class="col-lg-4 col-md-6 text-right">
-                <a href="{{route('user.contact')}}" class="filled-button">Contact Us</a>
+              <div class="col-lg-4 col-md-6 text-right mt-3 text-center">
+                {{-- <a href="{{route('user.contact')}}" class="filled-button">Contact Us</a> --}}
+                <a href="tel:02154365000"><i class="fa fa-phone"> <strong>Hotline: 021-54365000</strong></i></a><br>
+                <a href="https://api.whatsapp.com/send?phone=+6281218832206&text=Hallo%20Kami%20Dari%20Highlander%20ada%20yang%20bisa%20kami%20bantu?">
+                <i class="fa fa-whatsapp mt-2"> <strong>Whatsapp: +6281218832206</strong></i></a>
               </div>
             </div>
           </div>
@@ -180,7 +183,7 @@
 
             // On click of specified class (e.g. 'nothanks'), trigger cookie, with expiration in year 9999
             $(".nothanks").click(function() {
-              document.cookie = "no_thanks=true; expires=0; path=/user/home";
+              document.cookie = "no_thanks=true; expires=0; path=/";
 
             });
         });
